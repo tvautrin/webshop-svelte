@@ -1,0 +1,12 @@
+apiVersion: skaffold/v4beta1
+kind: Config
+metadata:
+  name: webshop-svelte
+build:
+  local:
+    push: false
+  artifacts:
+  - image: webshop-svelte
+manifests:
+  rawYaml:
+  - k8s/manifest.yaml
