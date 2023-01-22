@@ -7,8 +7,8 @@ on:
     branches: [ "master" ]
 
 jobs:
-  push_to_registry:
-    name: Push Docker image to Docker Hub
+  build_push_to_registry:
+    name: Build and Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
       - name: Login to Docker Hub
