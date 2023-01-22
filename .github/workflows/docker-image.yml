@@ -7,19 +7,24 @@ on:
     branches: [ "master" ]
 
 jobs:
-
-  build:
-
+  push_to_registry:
+    name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
-
     steps:
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v2.1.0
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build the Docker image
-        run: |
-          now=$(date +%s)
-          docker build . --file Dockerfile --tag tvautrin/webshop-svelte:$now
-          docker push tvautrin/webshop-svelte:$now
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4.3.0
+        with:
+          images: tvautrin/webshop-svelte
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3.3.0
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
