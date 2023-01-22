@@ -1,38 +1,32 @@
-# create-svelte
+[![Docker Image CI](https://github.com/tvautrin/webshop-svelte/actions/workflows/docker-image.yml/badge.svg)](https://github.com/tvautrin/webshop-svelte/actions/workflows/docker-image.yml)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+# Svelte & Skaffold & Github Actions playground 
 
-## Creating a project
+It's just a simple app developed with svelte JS. 
 
-If you're seeing this, you've probably already done this step. Congrats!
+Skaffold has been add to enhanced developer experience and the deployment on a local kubernetes cluster.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+At the end, when a commit is push to main, github actions runs and push the image built to my repo on docker hub (tvautrin/webshop-svelte)
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+To run project, there are many options :
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Running with npm
 
 ```bash
+# Clone the project
+git clone https://github.com/tvautrin/webshop-svelte.git
+# Change folder
+cd webshop-svelte
+# Install dependencies
+npm install
+# Run project
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+## Running with docker
 
-To create a production version of your app:
 
 ```bash
-npm run build
+docker run -p 30000:3000 tvautrin/webshop-svelte
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+ Open your browser on http://localhost:30000
