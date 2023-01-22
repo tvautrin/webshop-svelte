@@ -20,4 +20,4 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build . --file Dockerfile --tag tvautrin/webshop-svelte:$(date +%s)
-        docker push vautrin/webshop-svelte:$(date +%s)
+        docker push tvautrin/webshop-svelte:$(date +%s)
