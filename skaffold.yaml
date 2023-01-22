@@ -3,10 +3,9 @@ kind: Config
 metadata:
   name: webshop-svelte
 build:
-  local:
-    push: false
+  local: {}
   artifacts:
-  - image: webshop-svelte
+  - image: tvautrin/webshop-svelte
 manifests:
   rawYaml:
   - k8s/manifest.yaml

@@ -26,6 +26,6 @@ spec:
     spec:
       containers:
         - name: web
-          image: webshop-svelte
+          image: tvautrin/webshop-svelte
           ports:
             - containerPort: 3000
