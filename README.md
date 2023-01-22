@@ -23,10 +23,12 @@ npm install
 npm run dev
 ```
 
+Open your browser on http://localhost:5173/productcatalog
+
 ## Running with docker
 
 
 ```bash
 docker run -p 30000:3000 tvautrin/webshop-svelte
 ```
- Open your browser on http://localhost:30000
+ Open your browser on http://localhost:30000/productcatalog
